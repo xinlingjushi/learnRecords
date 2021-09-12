@@ -5,6 +5,9 @@ import org.apache.zookeeper.Watcher;
 import org.apache.zookeeper.ZooKeeper;
 import java.util.concurrent.CountDownLatch;
 
+/**
+ * zk工具类
+ */
 public class ZKUtils {
 
     private static ZooKeeper zk ;

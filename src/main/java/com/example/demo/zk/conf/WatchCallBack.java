@@ -7,21 +7,14 @@ import org.apache.zookeeper.ZooKeeper;
 import org.apache.zookeeper.data.Stat;
 import java.util.concurrent.CountDownLatch;
 
+/**
+ * zk，异步获取配置的监听
+ */
 public class WatchCallBack implements Watcher, AsyncCallback.StatCallback, AsyncCallback.DataCallback {
 
     private  ZooKeeper zk ;
     private  String confStr ;
     private  CountDownLatch countDownLatch;
-
-    public  ZooKeeper getZk() {
-        return zk;
-    }
-
-    public  String getConfStr() { return confStr; }
-
-    public  CountDownLatch getCountDownLatch() {
-        return countDownLatch;
-    }
 
     public  void setZk(ZooKeeper zk) {this.zk = zk;}
 

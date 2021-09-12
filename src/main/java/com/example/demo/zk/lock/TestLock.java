@@ -6,9 +6,10 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-
+/**
+ * zk，分布式锁的实现
+ */
 public class TestLock {
-
 
     private static ZooKeeper zk ;
     private static String confStr ;
@@ -46,7 +47,6 @@ public class TestLock {
         for (;;){
 
         }
-
     }
 
     public  void  doWork(String threadName){

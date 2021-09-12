@@ -11,6 +11,9 @@ import org.junit.Test;
 import java.util.Random;
 import java.util.concurrent.CountDownLatch;
 
+/**
+ * zk，同步获取配置
+ */
 public class TestConfigSync implements Watcher {
 
     private static CountDownLatch countDownLatch = new CountDownLatch(1);

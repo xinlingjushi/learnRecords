@@ -2,12 +2,13 @@ package com.example.demo.zk.lock;
 
 import org.apache.zookeeper.*;
 import org.apache.zookeeper.data.Stat;
-
 import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 import java.util.concurrent.CountDownLatch;
 
+/**
+ * zk，分布式锁的监听
+ */
 public class WatchCallBackLock implements Watcher ,AsyncCallback.StringCallback,AsyncCallback.ChildrenCallback ,AsyncCallback.StatCallback {
 
     private ZooKeeper zk ;
