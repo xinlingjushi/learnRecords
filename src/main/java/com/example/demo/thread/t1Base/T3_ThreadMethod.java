@@ -1,5 +1,6 @@
 package com.example.demo.thread.t1Base;
 
+import java.util.Random;
 import java.util.concurrent.locks.LockSupport;
 
 public class T3_ThreadMethod {
@@ -87,5 +88,44 @@ public class T3_ThreadMethod {
         t2.start();
     }
 
+    /**
+     * interrupt      中断标记
+     * interrupted    清除中断标记
+     * isInterrupted  测试此线程是否已中断
+     */
+    public static void interruptTest(){
+        Thread t1 =  new Thread(()->{
+            int i=0;
+            for (;i<5;i++) {
+                try {
+                    Thread.sleep(1000);
+                    System.out.println("Thread run :"+i);
+                } catch (InterruptedException e) {
+                    System.err.println(e.getMessage());
+                    int num = new Random().nextInt(2);
+                    if(num==0){//把回复的命运交给硬币
+                        Thread.interrupted();
+                    }else {
+                        break;
+                    }
+                }
+            }
+        });
+        t1.start();
+        try {
+            Thread.sleep(2000);
+            System.out.println("Thread isInterrupted :"+t1.isInterrupted());//测试此线程是否已中断
+            System.out.println("Thread interrupt ");
+            t1.interrupt();
+            System.out.println("Thread isInterrupted :"+t1.isInterrupted());
+            t1.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String argv[]){
+        interruptTest();
+    }
 
 }
